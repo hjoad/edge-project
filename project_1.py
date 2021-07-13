@@ -1,7 +1,6 @@
 import random
 lower_letters_list = "abcdefghijklmnopqrstuvwxyz"
 upper_letters_list = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-numbers_list = "0123456789"
 
 # The user inputs their requirements (eg. # of letters and numbers, lowercase, etc.) as well as preferences (including a specific word) and the program will generate a password for them.
 
@@ -43,9 +42,22 @@ while total_characters > length:
         total_characters = lowercase + uppercase + numbers + len(word)
 
 # numbers, lowercase, uppercase, word
+# # check if we can randomize order
 
 for i in range(numbers):
-    random = randint(0, 9)
-    password.append(numbers_list[random])
+    n = random.randint(0, 9)
+    password = password + str(n)
 
-print(password)
+for i in range(lowercase):
+    n = random.choice(lower_letters_list)
+    password = password + str(n)
+
+for i in range(uppercase):
+    n = random.choice(upper_letters_list)
+    password = password + str(n)
+
+password = password + word
+
+file = open("password.txt", "w+")
+file.write(password)
+file.close()
