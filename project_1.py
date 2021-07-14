@@ -54,7 +54,6 @@ while total_characters > length or total_characters < min_length:
         total_characters = lowercase + uppercase + numbers + len(word)
 
 # numbers, lowercase, uppercase, word
-# # check if we can randomize order
 
 for i in range(numbers):
     n = random.randint(0, 9)
